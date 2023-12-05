@@ -1,0 +1,50 @@
+.banner1 {
+    background-image: url(../images/home\ pic\ 1.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 90vh;
+    .container {
+        height: 100%;
+        .banner1-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            height: 100%;
+            .banner1-text {
+                width: 50%;
+                h4 {
+                    color: white;
+                    font-size: 3rem;
+                    font-weight: bold;
+                    text-align: center;
+                    line-height: 5rem;
+                }
+            }
+            .banner1-arrow {
+                i {
+                    color: white;
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+    @include mediaQuery(960px) {
+        & {
+            height: 100vh;
+            background-attachment: fixed;
+            .container {
+                .banner1-wrapper {
+                    gap: 3rem;
+                    .banner1-text {
+                        h4 {
+                            font-size: 6rem;
+                            line-height: 10rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

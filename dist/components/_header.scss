@@ -1,0 +1,166 @@
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    .container {
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .header-branding {
+                max-width: 20rem;
+            }
+            .header-nav {
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                top: 0;
+                right: -100rem;
+                height: 100vh;
+                width: 100vw;
+                background-color: white;
+                transition: 0.5s ease;
+                &.open {
+                    right: 0;
+                    transition: 0.5s ease;
+                }
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    padding: 8rem 0; 
+                    li { 
+                        padding: 1.5rem 0;
+                        a {
+                            color: #af9453;
+                            font-size: 1.8rem;
+                        }
+                    }
+                    .services {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .chevron {
+                            display: flex;
+                            &.open span:first-child {
+                                transform: translate(2px) rotate(-45deg);
+                            }
+                            &.open span:last-child {
+                                transform: translate(-2px) rotate(45deg);
+                            }
+                            span {
+                                display: flex;
+                                height: 0.1rem;
+                                width: 1.2rem;
+                                background-color: black;
+                                &:first-child {
+                                    transform: translate(2px) rotate(45deg);
+                                }
+                                &:last-child {
+                                    transform: translate(-2px) rotate(-45deg);
+                                }
+                            }
+                        }
+                        .dropdown {
+                            display: none;
+                        }
+                    }
+                    ul {
+                        padding: 0 2rem;
+                        height: 0vh;
+                        width: 100%;
+                        overflow: hidden;
+                        &.open {
+                            height: unset;
+                        }
+                    }
+                }
+            }
+            .burger-button {
+                display: flex;
+                flex-direction: column;
+                gap: 0.4rem;
+                &.open span:first-child {
+                    transform: translate(0, 6px) rotate(45deg);
+                    transition: 0.5s ease;
+                }
+                &.open span:nth-child(2) {
+                    opacity: 0;
+                    transition: 0.5s ease;
+                }
+                &.open span:last-child {
+                    transform: translate(0, -6px) rotate(-45deg);
+                    transition: 0.5s ease;
+                }
+                span {
+                    display: flex;
+                    height: 0.2rem;
+                    width: 2rem;
+                    background-color: black;
+                    transition: 0.5s ease;
+                }
+            }
+        }
+    }
+    @include mediaQuery(960px) {
+        & {
+            .container {
+                .header-wrapper {
+                    .header-branding {
+                        
+                    }
+                    .header-nav {
+                        position: relative;
+                        top: unset;
+                        right: unset;
+                        height: unset;
+                        width: unset;
+                        background-color: unset;
+                        ul {
+                            flex-direction: row;
+                            width: unset;
+                            padding: 0;
+                            li {
+                                display: flex;
+                                justify-content: center;
+                                width: 17rem;
+                                a {
+
+                                }
+                            }
+                            .services {
+                                flex-direction: column;
+                                position: relative;
+                                gap: 1rem;
+                                &:hover .dropdown {
+                                    height: unset;
+                                }
+                                .chevron {
+                                    display: none;
+                                }   
+                                .dropdown {
+                                    display: flex;
+                                    position: absolute;
+                                    top: 5rem;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    gap: 1rem;
+                                    height: 0vh;
+                                    overflow: hidden;
+                                    background-color: white;
+                                    width: 100%;
+                                }
+                            }
+                            ul {
+                                display: none;
+                            }
+                        }
+                    }
+                    .burger-button {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
